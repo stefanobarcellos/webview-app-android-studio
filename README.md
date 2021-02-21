@@ -15,28 +15,28 @@ Explica-se aqui como criar um aplicativo de navegador para abrir uma página des
 - Com o seu projeto criado e aberto no Android Studio, abra o arquivo AndroidManifest.xml
 - Caso seu app for abrir uma página remota, antes da Tag <application> adicione o seguinte:
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
 ## 3. Editando o arquivo MainActivity.java
 
 - Primeiro importe:
 
-    import android.webkit.WebSettings;
-    import android.webkit.WebView;
-    import android.webkit.WebViewClient;
+        import android.webkit.WebSettings;
+        import android.webkit.WebView;
+        import android.webkit.WebViewClient;
 
 - Adicione logo que iniciar sua classe, dentro dela:
 
-    private WebView mWebView;
+        private WebView mWebView;
 
 - Adicione abaixo do setContentView o seguinte código:
 
-    mWebView = findViewById(R.id.activity_main_webview);
-    WebSettings webSettings = mWebView.getSettings();
-    webSettings.setJavaScriptEnabled(true); // permite o uso de javascript, deixar como true pode implicar em problemas de segurança
-    mWebView.setWebViewClient(new WebViewClient());
-    mWebView.loadUrl("https://meusite.com");
+        mWebView = findViewById(R.id.activity_main_webview);
+        WebSettings webSettings = mWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true); // permite o uso de javascript, deixar como true pode implicar em problemas de segurança
+        mWebView.setWebViewClient(new WebViewClient());
+        mWebView.loadUrl("https://meusite.com");
 
 - Em loadUrl, substitua https://meusite.com pela página remota que deseja abrir.
 
@@ -55,19 +55,19 @@ Explica-se aqui como criar um aplicativo de navegador para abrir uma página des
 
 - No arquivo themes.xml do seu projeto, procure por:
 
-    DarkActionBar
+        DarkActionBar
 
 - Substitua por:
 
-    NoActionBar
+        NoActionBar
 
 - No arquivo MainActivity.java, importe o seguinte:
 
-    import android.view.WindowManager;
+        import android.view.WindowManager;
 
 - Ainda no arquivo MainActivity.java, adicione acima do setContentView o seguinte código:
 
-    getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 - Pronto, agora sua aplicação rodará em fullscreen (tela cheia).
 
@@ -75,17 +75,17 @@ Explica-se aqui como criar um aplicativo de navegador para abrir uma página des
 
 - Crie um arquivo chamado teste.html em:
 
-    NomeDoApp\app\src\main\assets\teste.html
+        NomeDoApp\app\src\main\assets\teste.html
 
 - Crie a pasta assets se for necessário.
 
 - Adicione o seguinte código HTML no teste.html:
 
-    <h3>Funciona!</h3>
+        <h3>Funciona!</h3>
 
 - No arquivo MainActivity.java, altere a string do loadUrl para:
 
-    mWebView.loadUrl("file:///android_asset/teste.html");
+        mWebView.loadUrl("file:///android_asset/teste.html");
 
 - Você pode criar mais páginas dentro da pasta assets e linkar uma com a outra por meio de HTML, sem problemas.
 
