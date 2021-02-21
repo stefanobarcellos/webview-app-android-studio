@@ -13,7 +13,7 @@ Explica-se aqui como criar um aplicativo de navegador para abrir uma página des
 ## 2. Editando o arquivo AndroidManifest.xml
 
 - Com o seu projeto criado e aberto no Android Studio, abra o arquivo AndroidManifest.xml
-- Caso seu app for abrir uma página remota, antes da Tag <application> adicione o seguinte:
+- Caso seu app for abrir uma página remota, antes da tag application adicione o seguinte:
 
         <uses-permission android:name="android.permission.INTERNET"/>
         <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
