@@ -36,6 +36,7 @@ Explica-se aqui como criar um aplicativo de navegador para abrir uma página des
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setJavaScriptEnabled(true); // permite o uso de javascript, deixar como true pode implicar em problemas de segurança
         mWebView.setWebViewClient(new WebViewClient());
+        mWebView.setWebChromeClient(new WebChromeClient()); // permite mais opções
         mWebView.loadUrl("https://meusite.com");
 
 - Em loadUrl, substitua https://meusite.com pela página remota que deseja abrir.
